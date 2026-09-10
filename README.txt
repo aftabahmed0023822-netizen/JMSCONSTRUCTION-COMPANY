@@ -1,7 +1,7 @@
 JMS Construction & Company — Premium Website
 =============================================
 Files:
-- index.html <meta name="google-site-verification" content="DFaiM4WQ9SDWKlRK-NJEorMRXkGoo_J3Pc3MNd7ye5A" />
+- index.html 
 - jms-logo.png
 
 The site uses three free-to-use Unsplash construction photographs as visual references.
