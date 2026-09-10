@@ -1140,30 +1140,30 @@ WhatsApp JMS
 
 <div class="container">
 
-<div class="section-top reveal show">
+<div class="section-top reveal">
 
 <div>
 
 <div class="eyebrow">
-What we do
+OUR EXPERTISE
 </div>
 
 <h2 class="heading">
-Construction solutions<br>
-with a professional edge.
+Professional construction<br>
+<span>solutions built around your project.</span>
 </h2>
 
 </div>
 
 <p class="lead">
-From project quantities and BOQs to civil execution and renovation, JMS Construction & Company provides practical support across key project stages.
+JMS Construction & Company delivers practical construction, civil engineering, quantity estimation and project support services across Sindh — from initial planning and documentation through execution and completion.
 </p>
 
 </div>
 
 <div class="grid6">
 
-<div class="card reveal show">
+<div class="card reveal">
 
 <span class="num">01 / BUILD</span>
 
@@ -1172,78 +1172,138 @@ Building Construction
 </h3>
 
 <p>
-Residential, commercial and building construction solutions with professional project execution.
+Residential, commercial and general building construction with organized execution, quality workmanship and professional project coordination.
 </p>
+
+<a href="#contact" class="service-link">
+Discuss Your Project →
+</a>
 
 </div>
 
-<div class="card reveal show">
+<div class="card reveal">
 
 <span class="num">02 / CIVIL</span>
 
 <h3>
-Civil Works
+Civil & Structural Works
 </h3>
 
 <p>
-PCC, RCC, masonry, concrete, plastering, earthwork, drainage and related civil works.
+PCC, RCC, foundations, masonry, concrete, plastering, earthwork, drainage and other essential civil construction works.
 </p>
+
+<a href="#contact" class="service-link">
+Discuss Your Project →
+</a>
 
 </div>
 
-<div class="card reveal show">
+<div class="card reveal">
 
-<span class="num">03 / ESTIMATE</span>
+<span class="num">03 / BOQ</span>
 
 <h3>
-BOQ & Estimation
+BOQ & Quantity Estimation
 </h3>
 
 <p>
-Quantity take-offs, BOQ preparation, material estimation, cost estimation and tender support.
+Detailed quantity take-offs, BOQ preparation, material estimation, cost estimation and quantity documentation for construction projects.
 </p>
+
+<a href="#contact" class="service-link">
+Request Estimation →
+</a>
 
 </div>
 
-<div class="card reveal show">
+<div class="card reveal">
 
-<span class="num">04 / INFRA</span>
+<span class="num">04 / TENDER</span>
+
+<h3>
+Tendering & Documentation
+</h3>
+
+<p>
+Tender documentation, BOQ review, quantity schedules and supporting documentation to help organize construction procurement.
+</p>
+
+<a href="#contact" class="service-link">
+Get Tender Support →
+</a>
+
+</div>
+
+<div class="card reveal">
+
+<span class="num">05 / INFRA</span>
 
 <h3>
 Roads & Infrastructure
 </h3>
 
 <p>
-Road, drainage, storm-water, site development and related infrastructure civil works.
+Road works, drainage, storm-water systems, site development and supporting infrastructure construction for development projects.
 </p>
+
+<a href="#contact" class="service-link">
+Discuss Infrastructure →
+</a>
 
 </div>
 
-<div class="card reveal show">
+<div class="card reveal">
 
-<span class="num">05 / RENEW</span>
+<span class="num">06 / RENEW</span>
 
 <h3>
 Renovation & Maintenance
 </h3>
 
 <p>
-Building renovation, civil repair, maintenance, flooring, finishing and improvement works.
+Building renovation, civil repairs, flooring, finishing, maintenance and improvement works designed to restore and enhance existing spaces.
 </p>
+
+<a href="#contact" class="service-link">
+Plan Renovation →
+</a>
 
 </div>
 
-<div class="card reveal show">
+<div class="card reveal">
 
-<span class="num">06 / ADVISE</span>
+<span class="num">07 / MANAGE</span>
+
+<h3>
+Project Management
+</h3>
+
+<p>
+Project planning, coordination, progress monitoring, documentation and execution support to help keep construction activities organized.
+</p>
+
+<a href="#contact" class="service-link">
+Discuss Management →
+</a>
+
+</div>
+
+<div class="card reveal">
+
+<span class="num">08 / CONSULT</span>
 
 <h3>
 Construction Consultancy
 </h3>
 
 <p>
-Planning, quantity assessment, documentation, tender preparation and project coordination support.
+Professional construction guidance covering planning, quantities, documentation, tender preparation, coordination and project support.
 </p>
+
+<a href="#contact" class="service-link">
+Book Consultation →
+</a>
 
 </div>
 
@@ -1252,6 +1312,128 @@ Planning, quantity assessment, documentation, tender preparation and project coo
 </div>
 
 </section>
+/* PREMIUM SERVICES */
+
+.services {
+    background: #f8faff;
+}
+
+.services .section-top {
+    align-items: flex-end;
+}
+
+.services .heading span {
+    color: var(--blue);
+}
+
+.services .lead {
+    max-width: 520px;
+}
+
+.grid6 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.services .card {
+    position: relative;
+    min-height: 285px;
+    padding: 30px 26px;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: .35s ease;
+}
+
+.services .card:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: .35s ease;
+}
+
+.services .card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(18,43,115,.18);
+    box-shadow: 0 20px 45px rgba(18,43,115,.12);
+}
+
+.services .card:hover:before {
+    transform: scaleX(1);
+}
+
+.services .num {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+    margin-bottom: 25px;
+}
+
+.services .card h3 {
+    color: var(--navy);
+    font-size: 21px;
+    line-height: 1.25;
+    margin-bottom: 13px;
+}
+
+.services .card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0 0 22px;
+}
+
+.service-link {
+    display: inline-block;
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    text-decoration: none;
+    transition: .25s;
+}
+
+.service-link:hover {
+    color: var(--gold);
+    transform: translateX(4px);
+}
+
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+
+    .grid6 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .grid6 {
+        grid-template-columns: 1fr;
+    }
+
+    .services .card {
+        min-height: auto;
+        padding: 27px 23px;
+    }
+
+}
 
 <!-- =========================================================
      PREMIUM ABOUT SECTION
