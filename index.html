@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,6 +59,10 @@
 
 <style>
 
+/* =========================================================
+   ROOT
+   ========================================================= */
+
 :root {
   --navy: #122b73;
   --navy2: #071633;
@@ -98,7 +103,9 @@ img {
   display: block;
 }
 
-/* HEADER */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 header {
   position: fixed;
@@ -157,7 +164,9 @@ nav a:hover:after {
   width: 100%;
 }
 
-/* BUTTONS */
+/* =========================================================
+   BUTTONS
+   ========================================================= */
 
 .btn {
   display: inline-flex;
@@ -197,7 +206,9 @@ nav a:hover:after {
   color: var(--navy);
 }
 
-/* MOBILE MENU */
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
 
 .menu-toggle {
   display: none;
@@ -209,7 +220,9 @@ nav a:hover:after {
   color: var(--navy);
 }
 
-/* HERO */
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero {
   min-height: 780px;
@@ -217,6 +230,7 @@ nav a:hover:after {
   position: relative;
   display: flex;
   align-items: center;
+
   background:
     linear-gradient(
       90deg,
@@ -287,7 +301,9 @@ h1 {
   margin-top: -5px;
 }
 
-/* STATS */
+/* =========================================================
+   STATS
+   ========================================================= */
 
 .stats {
   position: absolute;
@@ -320,7 +336,9 @@ h1 {
   color: var(--muted);
 }
 
-/* GENERAL */
+/* =========================================================
+   GENERAL
+   ========================================================= */
 
 section {
   padding: 105px 24px;
@@ -363,77 +381,106 @@ section {
   transform: none;
 }
 
-/* SERVICES */
+/* =========================================================
+   PREMIUM SERVICES
+   ========================================================= */
 
 .services {
-  background: var(--paper);
+  background: #f8faff;
 }
 
-.section-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 30px;
-  margin-bottom: 45px;
+.services .section-top {
+  align-items: flex-end;
 }
 
-.grid6 {
+.services .heading span {
+  color: var(--blue);
+}
+
+.services .lead {
+  max-width: 520px;
+}
+
+.services .grid6 {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 18px;
 }
 
-.card {
+.services .card {
+  position: relative;
+  min-height: 285px;
+  padding: 30px 26px;
   background: #ffffff;
   border: 1px solid var(--line);
-  padding: 32px;
-  border-radius: 10px;
-  min-height: 245px;
-  position: relative;
+  border-radius: 8px;
   overflow: hidden;
-  transition: .3s;
+  transition: .35s ease;
 }
 
-.card:before {
+.services .card:before {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
-  height: 4px;
-  width: 0;
-  background: var(--gold);
-  transition: .3s;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 45px rgba(16,35,78,.1);
-}
-
-.card:hover:before {
   width: 100%;
+  height: 3px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: .35s ease;
 }
 
-.num {
-  font-size: 12px;
+.services .card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(18,43,115,.18);
+  box-shadow: 0 20px 45px rgba(18,43,115,.12);
+}
+
+.services .card:hover:before {
+  transform: scaleX(1);
+}
+
+.services .num {
+  display: inline-block;
   color: var(--gold);
+  font-size: 10px;
   font-weight: 900;
-  letter-spacing: 2px;
+  letter-spacing: 1.8px;
+  margin-bottom: 25px;
 }
 
-.card h3 {
-  font-size: 22px;
-  margin: 15px 0 8px;
+.services .card h3 {
   color: var(--navy);
+  font-size: 21px;
+  line-height: 1.25;
+  margin: 0 0 13px;
 }
 
-.card p {
+.services .card p {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 0 0 22px;
+}
+
+.service-link {
+  display: inline-block;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  text-decoration: none;
+  transition: .25s;
+}
+
+.service-link:hover {
+  color: var(--gold);
+  transform: translateX(4px);
 }
 
 /* =========================================================
-   PREMIUM ABOUT SECTION
+   ABOUT
    ========================================================= */
 
 .about {
@@ -508,7 +555,9 @@ section {
   line-height: 1.55;
 }
 
-/* RIGHT SIDE PREMIUM VISUAL */
+/* =========================================================
+   ABOUT FOUNDER VISUAL
+   ========================================================= */
 
 .about-visual {
   min-height: 520px;
@@ -535,6 +584,8 @@ section {
   inset: 18px;
   border: 1px solid rgba(214,169,74,.45);
   border-radius: 8px;
+  z-index: 3;
+  pointer-events: none;
 }
 
 .about-visual:after {
@@ -546,13 +597,24 @@ section {
   border-radius: 50%;
   right: -100px;
   bottom: -100px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.founder-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .28;
+  z-index: 1;
 }
 
 .about-card {
   position: absolute;
-  z-index: 2;
+  z-index: 4;
   inset: 45px 38px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -611,7 +673,17 @@ section {
   letter-spacing: 1px;
 }
 
-/* PROJECTS */
+.owner-title {
+  display: block;
+  color: #f0cc73;
+  font-size: 12px;
+  margin-top: 6px;
+  letter-spacing: 1px;
+}
+
+/* =========================================================
+   PROJECTS
+   ========================================================= */
 
 .projects {
   background: var(--navy2);
@@ -682,7 +754,9 @@ section {
   font-size: 22px;
 }
 
-/* PROCESS */
+/* =========================================================
+   PROCESS
+   ========================================================= */
 
 .process {
   background: var(--paper);
@@ -725,7 +799,9 @@ section {
   color: var(--muted);
 }
 
-/* CTA */
+/* =========================================================
+   CTA
+   ========================================================= */
 
 .cta {
   padding: 95px 24px;
@@ -758,7 +834,9 @@ section {
   margin: 0 auto 28px;
 }
 
-/* CONTACT */
+/* =========================================================
+   CONTACT
+   ========================================================= */
 
 .contact-grid {
   display: grid;
@@ -800,7 +878,9 @@ section {
   color: #f0cc73;
 }
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 footer {
   background: #040b19;
@@ -829,9 +909,12 @@ footer {
   font-size: 12px;
 }
 
-/* ANIMATION */
+/* =========================================================
+   ANIMATION
+   ========================================================= */
 
 @keyframes rise {
+
   from {
     opacity: 0;
     transform: translateY(25px);
@@ -841,9 +924,12 @@ footer {
     opacity: 1;
     transform: none;
   }
+
 }
 
-/* TABLET */
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width:1100px) {
 
@@ -859,9 +945,15 @@ footer {
     right: 18px;
   }
 
+  .services .grid6 {
+    grid-template-columns: repeat(2,1fr);
+  }
+
 }
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width:950px) {
 
@@ -895,10 +987,6 @@ footer {
 
   .logo {
     order: 0;
-  }
-
-  .grid6 {
-    grid-template-columns: 1fr 1fr;
   }
 
   .about-grid,
@@ -938,7 +1026,9 @@ footer {
 
 }
 
-/* SMALL MOBILE */
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
 
 @media (max-width:600px) {
 
@@ -978,10 +1068,15 @@ footer {
     font-size: 17px;
   }
 
-  .grid6,
+  .services .grid6,
   .steps,
   .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  .services .card {
+    min-height: auto;
+    padding: 27px 23px;
   }
 
   .about-values {
@@ -1022,12 +1117,30 @@ footer {
 
 }
 
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width:380px) {
+
+  .about-card {
+    inset: 32px 22px;
+  }
+
+  .about-card h3 {
+    font-size: 27px;
+  }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
 
 <header>
 
@@ -1072,7 +1185,9 @@ Get a Consultation
 
 <main>
 
-<!-- HERO -->
+<!-- =========================================================
+     HERO
+     ========================================================= -->
 
 <section class="hero" id="home">
 
@@ -1134,7 +1249,9 @@ WhatsApp JMS
 
 </section>
 
-<!-- SERVICES -->
+<!-- =========================================================
+     SERVICES
+     ========================================================= -->
 
 <section class="services" id="services">
 
@@ -1312,131 +1429,9 @@ Book Consultation →
 </div>
 
 </section>
-/* PREMIUM SERVICES */
-
-.services {
-    background: #f8faff;
-}
-
-.services .section-top {
-    align-items: flex-end;
-}
-
-.services .heading span {
-    color: var(--blue);
-}
-
-.services .lead {
-    max-width: 520px;
-}
-
-.grid6 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-}
-
-.services .card {
-    position: relative;
-    min-height: 285px;
-    padding: 30px 26px;
-    background: #ffffff;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: .35s ease;
-}
-
-.services .card:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: .35s ease;
-}
-
-.services .card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(18,43,115,.18);
-    box-shadow: 0 20px 45px rgba(18,43,115,.12);
-}
-
-.services .card:hover:before {
-    transform: scaleX(1);
-}
-
-.services .num {
-    display: inline-block;
-    color: var(--gold);
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 1.8px;
-    margin-bottom: 25px;
-}
-
-.services .card h3 {
-    color: var(--navy);
-    font-size: 21px;
-    line-height: 1.25;
-    margin-bottom: 13px;
-}
-
-.services .card p {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.7;
-    margin: 0 0 22px;
-}
-
-.service-link {
-    display: inline-block;
-    color: var(--blue);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: .5px;
-    text-decoration: none;
-    transition: .25s;
-}
-
-.service-link:hover {
-    color: var(--gold);
-    transform: translateX(4px);
-}
-
-
-/* TABLET */
-
-@media (max-width: 1100px) {
-
-    .grid6 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-    .grid6 {
-        grid-template-columns: 1fr;
-    }
-
-    .services .card {
-        min-height: auto;
-        padding: 27px 23px;
-    }
-
-}
 
 <!-- =========================================================
-     PREMIUM ABOUT SECTION
+     ABOUT
      ========================================================= -->
 
 <section class="about" id="about">
@@ -1472,8 +1467,6 @@ professional team, and contribute to better construction
 standards through responsible planning, quality
 workmanship and honest service.
 </p>
-
-<!-- VISION / MISSION / GOAL -->
 
 <div class="about-values">
 
@@ -1523,16 +1516,15 @@ professional relationships.
 
 </div>
 
-<!-- RIGHT: PREMIUM FOUNDER / COMPANY VISUAL -->
+<!-- RIGHT: FOUNDER VISUAL -->
 
 <div class="about-visual reveal">
 
-<img src="founder.jpg"
-     alt="Founder of JMS Construction & Company"
-     class="founder-photo">
-
-
-
+<img
+  src="founder.jpg"
+  alt="Founder of JMS Construction & Company"
+  class="founder-photo"
+  loading="lazy">
 
 <div class="about-card">
 
@@ -1563,24 +1555,7 @@ Jam Aftab Ahmed Lakhan
 
 <span class="owner-title">
 Founder & Managing Director
-
-<style>
-
-.owner-title {
-    display: block;
-    color: #f0cc73;
-    font-size: 12px;
-    margin-top: 6px;
-    letter-spacing: 1px;
-}
-
-</style>
-
-
-  
 </span>
-
-}
 
 </div>
 
@@ -1592,7 +1567,9 @@ Founder & Managing Director
 
 </section>
 
-<!-- PROJECTS -->
+<!-- =========================================================
+     PROJECTS
+     ========================================================= -->
 
 <section class="projects" id="projects">
 
@@ -1691,7 +1668,9 @@ Building & Civil Works
 
 </section>
 
-<!-- PROCESS -->
+<!-- =========================================================
+     PROCESS
+     ========================================================= -->
 
 <section class="process" id="process">
 
@@ -1809,7 +1788,9 @@ Complete the project according to scope.
 
 </section>
 
-<!-- CTA -->
+<!-- =========================================================
+     CTA
+     ========================================================= -->
 
 <section class="cta">
 
@@ -1837,7 +1818,9 @@ Discuss Your Project
 
 </section>
 
-<!-- CONTACT -->
+<!-- =========================================================
+     CONTACT
+     ========================================================= -->
 
 <section id="contact">
 
@@ -1912,7 +1895,7 @@ Defence Bridge View, Defence View, Phase 2, Karachi, Pakistan
   href="https://maps.app.goo.gl/eZqu9SphJHAD3ify9"
   target="_blank"
   rel="noopener">
-  📍 View Our Location on Google Maps
+📍 View Our Location on Google Maps
 </a>
 
 </div>
@@ -1963,7 +1946,9 @@ Email Us
 
 </main>
 
-<!-- FOOTER -->
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
 
 <footer>
 
@@ -2011,7 +1996,9 @@ Contact
 
 </footer>
 
-<!-- JAVASCRIPT -->
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
 
 <script>
 
@@ -2019,11 +2006,15 @@ Contact
 
 const io = new IntersectionObserver(
   (entries) => {
+
     entries.forEach(entry => {
+
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
       }
+
     });
+
   },
   {
     threshold: 0.12
@@ -2087,3 +2078,4 @@ document.querySelectorAll("#mainNav a").forEach(link => {
 
 </body>
 </html>
+```
