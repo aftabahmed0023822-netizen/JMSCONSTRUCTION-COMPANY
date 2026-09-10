@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aftabahmed0023822-netizen.github.io/JMSCONSTRUCTION-COMPANY/sitemap.xml
