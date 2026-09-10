@@ -432,7 +432,9 @@ section {
   font-size: 14px;
 }
 
-/* ABOUT */
+/* =========================================================
+   PREMIUM ABOUT SECTION
+   ========================================================= */
 
 .about {
   background: #ffffff;
@@ -440,56 +442,173 @@ section {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap: 70px;
+  grid-template-columns: 1.08fr .92fr;
+  gap: 75px;
   align-items: center;
 }
 
-.about-photo {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 25px 70px rgba(18,43,115,.14);
-  position: relative;
+.about-content .heading span {
+  color: var(--blue);
 }
 
-.about-photo img {
-  width: 100%;
-  height: 530px;
-  object-fit: cover;
+.about-content > p {
+  color: var(--muted);
+  max-width: 680px;
+  margin: 0 0 18px;
 }
 
-.badge {
-  position: absolute;
-  left: 24px;
-  bottom: 24px;
-  background: #ffffff;
-  padding: 18px 22px;
-  border-radius: 7px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+.about-content .lead {
+  margin-bottom: 18px;
 }
 
-.badge b {
-  color: var(--navy);
-  font-size: 18px;
-}
+/* VISION / MISSION / GOAL */
 
-.values {
+.about-values {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3,1fr);
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 30px;
 }
 
-.value {
-  padding: 18px;
+.about-value {
+  padding: 20px 17px;
+  background: #f8faff;
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: .3s;
 }
 
-.value b {
-  color: var(--navy);
+.about-value:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gold);
+}
+
+.about-value:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(18,43,115,.09);
+}
+
+.about-value strong {
   display: block;
-  margin-bottom: 3px;
+  color: var(--navy);
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+.about-value span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+/* RIGHT SIDE PREMIUM VISUAL */
+
+.about-visual {
+  min-height: 520px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(7,22,51,.97),
+      rgba(18,43,115,.91)
+    ),
+    url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=85")
+    center/cover;
+
+  box-shadow:
+    0 25px 70px rgba(18,43,115,.20);
+}
+
+.about-visual:before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(214,169,74,.45);
+  border-radius: 8px;
+}
+
+.about-visual:after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(214,169,74,.18);
+  border-radius: 50%;
+  right: -100px;
+  bottom: -100px;
+}
+
+.about-card {
+  position: absolute;
+  z-index: 2;
+  inset: 45px 38px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.about-icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(214,169,74,.12);
+  border: 1px solid rgba(214,169,74,.65);
+
+  font-size: 34px;
+  margin-bottom: 28px;
+}
+
+.about-company {
+  color: #f0cc73;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+}
+
+.about-card h3 {
+  color: #ffffff;
+  font-size: 36px;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin: 12px 0 20px;
+}
+
+.about-card p {
+  color: #d6dfef;
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 390px;
+  margin: 0;
+}
+
+.about-line {
+  width: 65px;
+  height: 2px;
+  background: var(--gold);
+  margin: 30px 0 13px;
+}
+
+.about-card > strong {
+  color: #ffffff;
+  font-size: 13px;
+  letter-spacing: 1px;
 }
 
 /* PROJECTS */
@@ -787,6 +906,14 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .about-values {
+    grid-template-columns: repeat(3,1fr);
+  }
+
+  .about-visual {
+    min-height: 450px;
+  }
+
   .steps {
     grid-template-columns: repeat(3,1fr);
   }
@@ -853,8 +980,11 @@ footer {
 
   .grid6,
   .steps,
-  .project-grid,
-  .values {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-values {
     grid-template-columns: 1fr;
   }
 
@@ -874,8 +1004,16 @@ footer {
     font-size: 36px;
   }
 
-  .about-photo img {
-    height: 400px;
+  .about-visual {
+    min-height: 420px;
+  }
+
+  .about-card {
+    inset: 40px 28px;
+  }
+
+  .about-card h3 {
+    font-size: 29px;
   }
 
   .stat {
@@ -1115,100 +1253,124 @@ Planning, quantity assessment, documentation, tender preparation and project coo
 
 </section>
 
-<!-- ABOUT -->
+<!-- =========================================================
+     PREMIUM ABOUT SECTION
+     ========================================================= -->
 
 <section class="about" id="about">
 
-<div class="container about-grid">
+<div class="container">
 
-<div class="about-photo reveal show">
+<div class="about-grid">
 
-<img
-  src="https://images.unsplash.com/photo-1781613977789-6453baf7cfe8?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=85&w=1400"
-  alt="Construction site and modern building"
-  loading="lazy">
+<!-- LEFT: COMPANY STORY -->
 
-<div class="badge">
+<div class="about-content reveal">
 
-<b>
-Built for quality.
-</b>
-
-<br>
-
-<span>
-Planned for performance.
+<span class="eyebrow">
+About JMS
 </span>
 
-</div>
-
-</div>
-
-<div class="reveal show">
-
-<div class="eyebrow">
-About JMS
-</div>
-
 <h2 class="heading">
-A dependable partner for your next project.
+Building a company with a
+<span>vision beyond construction.</span>
 </h2>
 
 <p class="lead">
-JMS Construction & Company provides construction and civil engineering services for clients seeking dependable, practical and professionally coordinated solutions across Sindh.
+JMS Construction & Company was founded with a clear vision:
+to build a trusted construction company recognized for
+quality, professionalism, reliability and responsible
+project delivery across Sindh.
 </p>
 
 <p>
-Our approach combines proper planning, attention to construction requirements, quality workmanship and clear communication throughout the project.
+Our goal is not simply to complete projects, but to build
+lasting relationships with clients, develop a strong
+professional team, and contribute to better construction
+standards through responsible planning, quality
+workmanship and honest service.
 </p>
 
-<div class="values">
+<!-- VISION / MISSION / GOAL -->
 
-<div class="value">
+<div class="about-values">
 
-<b>
-Quality Focus
-</b>
+<div class="about-value">
+
+<strong>
+Our Vision
+</strong>
 
 <span>
-Responsible construction practices.
+Build a trusted and respected construction brand
+recognized for quality, professionalism and
+reliable project delivery.
 </span>
 
 </div>
 
-<div class="value">
+<div class="about-value">
 
-<b>
-Professional Approach
-</b>
+<strong>
+Our Mission
+</strong>
 
 <span>
-Structured planning and coordination.
+Deliver quality construction through professional
+planning, responsible workmanship, effective
+coordination and reliable execution.
 </span>
 
 </div>
 
-<div class="value">
+<div class="about-value">
 
-<b>
-Reliable Service
-</b>
+<strong>
+Our Goal
+</strong>
 
 <span>
-Responsible execution of agreed requirements.
+Become a dependable construction partner for
+clients across Sindh while building long-term
+professional relationships.
 </span>
 
 </div>
 
-<div class="value">
+</div>
 
-<b>
-Client Focus
-</b>
+</div>
 
-<span>
-Solutions aligned with project needs.
+<!-- RIGHT: PREMIUM FOUNDER / COMPANY VISUAL -->
+
+<div class="about-visual reveal">
+
+<div class="about-card">
+
+<div class="about-icon">
+🏗️
+</div>
+
+<span class="about-company">
+JMS CONSTRUCTION & COMPANY
 </span>
+
+<h3>
+Built on Vision.<br>
+Driven by Quality.
+</h3>
+
+<p>
+Professional construction and civil engineering
+services with a commitment to long-term growth,
+trusted relationships and quality project delivery.
+</p>
+
+<div class="about-line"></div>
+
+<strong>
+Founder & Visionary
+</strong>
 
 </div>
 
