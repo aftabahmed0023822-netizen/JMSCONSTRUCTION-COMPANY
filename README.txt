@@ -1,7 +1,7 @@
 JMS Construction & Company — Premium Website
 =============================================
 Files:
-- index.html 
+- index.html
 - jms-logo.png
 
 The site uses three free-to-use Unsplash construction photographs as visual references.
