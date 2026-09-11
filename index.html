@@ -125,6 +125,9 @@
       "@id": "https://jamaftabahmedlakhan.github.io/JMSCONSTRUCTION-COMPANY/#business",
       "name": "JMS Construction & Company",
       "url": "https://jamaftabahmedlakhan.github.io/JMSCONSTRUCTION-COMPANY/",
+      "sameAs": [
+        "https://www.linkedin.com/company/jms-construction-company/"
+      ],
       "logo": {
         "@type": "ImageObject",
         "url": "https://jamaftabahmedlakhan.github.io/JMSCONSTRUCTION-COMPANY/jms-logo.png"
@@ -2965,6 +2968,14 @@ Projects
 Contact
 </a>
 
+<a
+  href="https://www.linkedin.com/company/jms-construction-company/"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="JMS Construction & Company on LinkedIn">
+LinkedIn
+</a>
+
 </div>
 
 <div>
@@ -2980,10 +2991,6 @@ Contact
      ========================================================= -->
 
 <script>
-
-/* =========================================================
-   SCROLL REVEAL
-   ========================================================= */
 
 const io = new IntersectionObserver(
   (entries) => {
@@ -3006,10 +3013,6 @@ document
   .querySelectorAll(".reveal")
   .forEach(el => io.observe(el));
 
-
-/* =========================================================
-   MOBILE NAVIGATION
-   ========================================================= */
 
 const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
@@ -3035,10 +3038,6 @@ menuToggle.addEventListener("click", function() {
 });
 
 
-/* =========================================================
-   CLOSE MOBILE MENU AFTER LINK CLICK
-   ========================================================= */
-
 document.querySelectorAll("#mainNav a").forEach(link => {
 
   link.addEventListener("click", function() {
@@ -3061,10 +3060,6 @@ document.querySelectorAll("#mainNav a").forEach(link => {
 
 });
 
-
-/* =========================================================
-   PROJECT DISCUSSION MODAL
-   ========================================================= */
 
 const projectModal =
   document.getElementById("projectModal");
@@ -3123,10 +3118,6 @@ const serviceLinks =
 let selectedProject = "";
 
 
-/* =========================================================
-   OPEN MODAL
-   ========================================================= */
-
 function openProjectDiscussion(service = "") {
 
   projectModal.classList.add("active");
@@ -3159,10 +3150,6 @@ function openProjectDiscussion(service = "") {
 }
 
 
-/* =========================================================
-   CLOSE MODAL
-   ========================================================= */
-
 function closeProjectDiscussion() {
 
   projectModal.classList.remove("active");
@@ -3177,10 +3164,6 @@ function closeProjectDiscussion() {
 }
 
 
-/* =========================================================
-   STEP ONE
-   ========================================================= */
-
 function showProjectStepOne() {
 
   projectStepOne.classList.add("active");
@@ -3191,10 +3174,6 @@ function showProjectStepOne() {
 
 }
 
-
-/* =========================================================
-   STEP TWO
-   ========================================================= */
 
 function showProjectStepTwo() {
 
@@ -3218,10 +3197,6 @@ function showProjectStepTwo() {
 }
 
 
-/* =========================================================
-   SELECT SERVICE
-   ========================================================= */
-
 function selectProjectService(service) {
 
   selectedProject = service;
@@ -3240,10 +3215,6 @@ function selectProjectService(service) {
 }
 
 
-/* =========================================================
-   CLEAR SERVICE
-   ========================================================= */
-
 function clearSelectedService() {
 
   serviceOptions.forEach(option => {
@@ -3257,10 +3228,6 @@ function clearSelectedService() {
 
 }
 
-
-/* =========================================================
-   UPDATE SELECTED SERVICE
-   ========================================================= */
 
 function updateSelectedService() {
 
@@ -3278,10 +3245,6 @@ function updateSelectedService() {
 
 }
 
-
-/* =========================================================
-   WHATSAPP MESSAGE
-   ========================================================= */
 
 function updateProjectWhatsApp() {
 
@@ -3323,10 +3286,6 @@ function updateProjectWhatsApp() {
 }
 
 
-/* =========================================================
-   MAIN CTA
-   ========================================================= */
-
 openProjectModal.addEventListener(
   "click",
   function() {
@@ -3337,10 +3296,6 @@ openProjectModal.addEventListener(
 );
 
 
-/* =========================================================
-   HERO CTA
-   ========================================================= */
-
 heroProjectButton.addEventListener(
   "click",
   function() {
@@ -3350,10 +3305,6 @@ heroProjectButton.addEventListener(
   }
 );
 
-
-/* =========================================================
-   SERVICE CARD BUTTONS
-   ========================================================= */
 
 serviceLinks.forEach(link => {
 
@@ -3372,10 +3323,6 @@ serviceLinks.forEach(link => {
 });
 
 
-/* =========================================================
-   SERVICE OPTIONS
-   ========================================================= */
-
 serviceOptions.forEach(option => {
 
   option.addEventListener(
@@ -3391,10 +3338,6 @@ serviceOptions.forEach(option => {
 
 });
 
-
-/* =========================================================
-   CONTINUE
-   ========================================================= */
 
 projectNext.addEventListener(
   "click",
@@ -3416,10 +3359,6 @@ projectNext.addEventListener(
 );
 
 
-/* =========================================================
-   BACK
-   ========================================================= */
-
 projectBack.addEventListener(
   "click",
   function() {
@@ -3429,10 +3368,6 @@ projectBack.addEventListener(
   }
 );
 
-
-/* =========================================================
-   TABS
-   ========================================================= */
 
 projectTabOne.addEventListener(
   "click",
@@ -3461,10 +3396,6 @@ projectTabTwo.addEventListener(
 );
 
 
-/* =========================================================
-   FORM LIVE UPDATE
-   ========================================================= */
-
 projectLocation.addEventListener(
   "input",
   updateProjectWhatsApp
@@ -3476,10 +3407,6 @@ projectDetails.addEventListener(
 );
 
 
-/* =========================================================
-   WHATSAPP UPDATE BEFORE CLICK
-   ========================================================= */
-
 projectWhatsApp.addEventListener(
   "click",
   function() {
@@ -3489,10 +3416,6 @@ projectWhatsApp.addEventListener(
   }
 );
 
-
-/* =========================================================
-   CONTACT BUTTON
-   ========================================================= */
 
 projectContact.addEventListener(
   "click",
@@ -3504,29 +3427,17 @@ projectContact.addEventListener(
 );
 
 
-/* =========================================================
-   CLOSE BUTTON
-   ========================================================= */
-
 closeProjectModal.addEventListener(
   "click",
   closeProjectDiscussion
 );
 
 
-/* =========================================================
-   CLOSE ON OVERLAY
-   ========================================================= */
-
 projectModalOverlay.addEventListener(
   "click",
   closeProjectDiscussion
 );
 
-
-/* =========================================================
-   CLOSE WITH ESC KEY
-   ========================================================= */
 
 document.addEventListener(
   "keydown",
