@@ -614,11 +614,22 @@ section {
 .about-card {
   position: absolute;
   z-index: 4;
-  inset: 45px 38px;
+  left: 38px;
+  bottom: 38px;
+  width: 48%;
+  max-width: 430px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
+  padding: 24px 26px;
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    rgba(7,22,51,.92),
+    rgba(7,22,51,.72)
+  );
+  backdrop-filter: blur(4px);
 }
 
 .about-icon {
@@ -646,10 +657,10 @@ section {
 
 .about-card h3 {
   color: #ffffff;
-  font-size: 36px;
-  line-height: 1.15;
+  font-size: 32px;
+  line-height: 1.12;
   letter-spacing: -1px;
-  margin: 12px 0 20px;
+  margin: 10px 0 16px;
 }
 
 .about-card p {
@@ -1103,9 +1114,14 @@ footer {
     min-height: 420px;
   }
 
-  .about-card {
-    inset: 40px 28px;
-  }
+ .about-card {
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  width: auto;
+  max-width: none;
+  padding: 20px;
+}
 
   .about-card h3 {
     font-size: 29px;
@@ -1124,7 +1140,11 @@ footer {
 @media (max-width:380px) {
 
   .about-card {
-    inset: 32px 22px;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    width: auto;
+    padding: 18px;
   }
 
   .about-card h3 {
