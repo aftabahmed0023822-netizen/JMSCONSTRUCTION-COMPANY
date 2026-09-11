@@ -26,11 +26,8 @@
 >
 
 <meta name="robots" content="index, follow">
-
 <meta name="author" content="JMS Construction & Company">
-
 <meta name="theme-color" content="#122b73">
-
 <meta name="format-detection" content="telephone=yes">
 
 <link
@@ -39,7 +36,7 @@
 >
 
 <!-- =========================================================
-     PERFORMANCE / RESOURCE HINTS
+     PERFORMANCE
      ========================================================= -->
 
 <link rel="preconnect" href="https://images.unsplash.com">
@@ -77,7 +74,6 @@
 >
 
 <meta property="og:site_name" content="JMS Construction & Company">
-
 <meta property="og:locale" content="en_PK">
 
 <!-- =========================================================
@@ -251,10 +247,6 @@
 
 <style>
 
-/* =========================================================
-   ROOT
-   ========================================================= */
-
 :root {
   --navy: #122b73;
   --navy2: #071633;
@@ -283,6 +275,10 @@ body {
   background: #ffffff;
   line-height: 1.65;
   overflow-x: hidden;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 a {
@@ -375,6 +371,7 @@ nav a:hover:after {
   transition: .25s;
   box-shadow: 0 8px 22px rgba(18,43,115,.18);
   cursor: pointer;
+  border: 0;
 }
 
 .btn:hover {
@@ -664,6 +661,11 @@ section {
   letter-spacing: .5px;
   text-decoration: none;
   transition: .25s;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .service-link:hover {
@@ -699,8 +701,6 @@ section {
 .about-content .lead {
   margin-bottom: 18px;
 }
-
-/* VISION / MISSION / GOAL */
 
 .about-values {
   display: grid;
@@ -817,14 +817,11 @@ section {
   width: 76px;
   height: 76px;
   border-radius: 50%;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: rgba(214,169,74,.12);
   border: 1px solid rgba(214,169,74,.65);
-
   font-size: 34px;
   margin-bottom: 28px;
 }
@@ -1068,6 +1065,377 @@ section {
 
 .contact-panel a:hover {
   color: #f0cc73;
+}
+
+/* =========================================================
+   PROJECT DISCUSSION MODAL
+   ========================================================= */
+
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.project-modal.active {
+  display: flex;
+}
+
+.project-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(3,10,27,.78);
+  backdrop-filter: blur(8px);
+}
+
+.project-modal-box {
+  position: relative;
+  z-index: 2;
+  width: min(760px, 100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 30px 90px rgba(0,0,0,.35);
+  animation: modalIn .3s ease both;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.project-modal-top {
+  padding: 28px 30px 22px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.project-modal-eyebrow {
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.project-modal-top h2 {
+  margin: 7px 45px 5px 0;
+  color: var(--navy2);
+  font-size: 30px;
+  line-height: 1.15;
+}
+
+.project-modal-top p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  color: var(--navy);
+  font-size: 23px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.project-modal-close:hover {
+  background: var(--navy);
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+.project-progress {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 18px 30px 0;
+}
+
+.project-tab {
+  border: 0;
+  background: #f2f5fa;
+  color: var(--muted);
+  padding: 12px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .5px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.project-tab.active {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.project-tab span {
+  display: block;
+  font-size: 9px;
+  opacity: .75;
+  margin-bottom: 2px;
+}
+
+.project-step {
+  display: none;
+  padding: 25px 30px 30px;
+}
+
+.project-step.active {
+  display: block;
+}
+
+.project-step-title {
+  margin: 0 0 7px;
+  color: var(--navy2);
+  font-size: 21px;
+}
+
+.project-step-description {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.project-service-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+}
+
+.project-service-option {
+  position: relative;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  border-radius: 9px;
+  padding: 16px 17px;
+  text-align: left;
+  cursor: pointer;
+  transition: .25s;
+  font-family: inherit;
+}
+
+.project-service-option:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(18,43,115,.08);
+}
+
+.project-service-option.selected {
+  border-color: var(--navy);
+  background: #f5f7fd;
+  box-shadow: 0 0 0 2px rgba(18,43,115,.08);
+}
+
+.project-service-option strong {
+  display: block;
+  color: var(--navy);
+  font-size: 13px;
+  margin-bottom: 3px;
+}
+
+.project-service-option span {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.project-service-check {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #071633;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.project-service-option.selected .project-service-check {
+  display: flex;
+}
+
+.project-form-group {
+  margin-bottom: 17px;
+}
+
+.project-form-group label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--navy2);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+.project-form-group input,
+.project-form-group textarea {
+  width: 100%;
+  border: 1px solid #d8deea;
+  border-radius: 7px;
+  padding: 13px 14px;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  background: #ffffff;
+  outline: none;
+  transition: .2s;
+}
+
+.project-form-group input:focus,
+.project-form-group textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37,72,165,.08);
+}
+
+.project-form-group textarea {
+  min-height: 125px;
+  resize: vertical;
+}
+
+.selected-project-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 13px 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background: #f4f6fb;
+  border-left: 3px solid var(--gold);
+}
+
+.selected-project-box small {
+  display: block;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.selected-project-box strong {
+  color: var(--navy);
+  font-size: 14px;
+}
+
+.project-form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.project-form-actions .right-actions {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.project-back {
+  background: #eef1f7;
+  color: var(--navy);
+  box-shadow: none;
+}
+
+.project-back:hover {
+  box-shadow: none;
+}
+
+.project-whatsapp {
+  background: #168b4b;
+  color: #ffffff;
+}
+
+.project-whatsapp:hover {
+  box-shadow: 0 12px 25px rgba(22,139,75,.25);
+}
+
+.project-contact {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.project-required {
+  color: #b42318;
+}
+
+@media (max-width:600px) {
+
+  .project-modal {
+    padding: 10px;
+  }
+
+  .project-modal-box {
+    max-height: 94vh;
+    border-radius: 13px;
+  }
+
+  .project-modal-top {
+    padding: 22px 20px 18px;
+  }
+
+  .project-modal-top h2 {
+    font-size: 25px;
+  }
+
+  .project-progress {
+    padding: 15px 20px 0;
+  }
+
+  .project-step {
+    padding: 20px;
+  }
+
+  .project-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-form-actions {
+    display: block;
+  }
+
+  .project-form-actions .right-actions {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  .project-form-actions .btn {
+    width: 100%;
+  }
+
+  .project-form-actions .right-actions .btn {
+    width: 100%;
+  }
+
 }
 
 /* =========================================================
@@ -1426,14 +1794,14 @@ across Sindh, Pakistan.
 
 <div class="hero-actions">
 
-<a
+<button
   class="btn gold"
-  href="#contact"
-  aria-label="Start your construction project with JMS Construction & Company">
+  type="button"
+  id="heroProjectButton">
 
 Start Your Project
 
-</a>
+</button>
 
 <a
   class="btn outline"
@@ -1516,9 +1884,7 @@ and documentation through execution and completion.
 
 <span class="num">01 / BUILD</span>
 
-<h3>
-Building Construction
-</h3>
+<h3>Building Construction</h3>
 
 <p>
 Residential, commercial and general building construction
@@ -1526,9 +1892,14 @@ with organized execution, quality workmanship and
 professional project coordination.
 </p>
 
-<a href="#contact" class="service-link">
+<button
+  type="button"
+  class="service-link project-service-link"
+  data-project="Building Construction">
+
 Discuss Your Project →
-</a>
+
+</button>
 
 </div>
 
@@ -1536,9 +1907,7 @@ Discuss Your Project →
 
 <span class="num">02 / CIVIL</span>
 
-<h3>
-Civil & Structural Works
-</h3>
+<h3>Civil & Structural Works</h3>
 
 <p>
 PCC, RCC, foundations, masonry, concrete, plastering,
@@ -1546,9 +1915,14 @@ earthwork, drainage and other essential civil construction
 works.
 </p>
 
-<a href="#contact" class="service-link">
+<button
+  type="button"
+  class="service-link project-service-link"
+  data-project="Civil & Structural Works">
+
 Discuss Your Project →
-</a>
+
+</button>
 
 </div>
 
@@ -1556,9 +1930,7 @@ Discuss Your Project →
 
 <span class="num">03 / BOQ</span>
 
-<h3>
-BOQ & Quantity Estimation
-</h3>
+<h3>BOQ & Quantity Estimation</h3>
 
 <p>
 Detailed quantity take-offs, BOQ preparation, material
@@ -1566,9 +1938,14 @@ estimation, cost estimation and quantity documentation
 for construction projects.
 </p>
 
-<a href="#contact" class="service-link">
+<button
+  type="button"
+  class="service-link project-service-link"
+  data-project="BOQ & Quantity Estimation">
+
 Request Estimation →
-</a>
+
+</button>
 
 </div>
 
@@ -1576,9 +1953,7 @@ Request Estimation →
 
 <span class="num">04 / TENDER</span>
 
-<h3>
-Tendering & Documentation
-</h3>
+<h3>Tendering & Documentation</h3>
 
 <p>
 Tender documentation, BOQ review, quantity schedules
@@ -1586,9 +1961,14 @@ and supporting documentation to help organize
 construction procurement.
 </p>
 
-<a href="#contact" class="service-link">
+<button
+  type="button"
+  class="service-link project-service-link"
+  data-project="Tendering & Documentation">
+
 Get Tender Support →
-</a>
+
+</button>
 
 </div>
 
@@ -1596,9 +1976,7 @@ Get Tender Support →
 
 <span class="num">05 / INFRA</span>
 
-<h3>
-Roads & Infrastructure
-</h3>
+<h3>Roads & Infrastructure</h3>
 
 <p>
 Road works, drainage, storm-water systems, site
@@ -1606,9 +1984,14 @@ development and supporting infrastructure construction
 for development projects.
 </p>
 
-<a href="#contact" class="service-link">
+<button
+  type="button"
+  class="service-link project-service-link"
+  data-project="Roads & Infrastructure">
+
 Discuss Infrastructure →
-</a>
+
+</button>
 
 </div>
 
@@ -1616,9 +1999,7 @@ Discuss Infrastructure →
 
 <span class="num">06 / RENEW</span>
 
-<h3>
-Renovation & Maintenance
-</h3>
+<h3>Renovation & Maintenance</h3>
 
 <p>
 Building renovation, civil repairs, flooring, finishing,
@@ -1626,9 +2007,14 @@ maintenance and improvement works designed to restore
 and enhance existing spaces.
 </p>
 
-<a href="#contact" class="service-link">
+<button
+  type="button"
+  class="service-link project-service-link"
+  data-project="Renovation & Maintenance">
+
 Plan Renovation →
-</a>
+
+</button>
 
 </div>
 
@@ -1636,9 +2022,7 @@ Plan Renovation →
 
 <span class="num">07 / MANAGE</span>
 
-<h3>
-Project Management
-</h3>
+<h3>Project Management</h3>
 
 <p>
 Project planning, coordination, progress monitoring,
@@ -1646,9 +2030,14 @@ documentation and execution support to help keep
 construction activities organized.
 </p>
 
-<a href="#contact" class="service-link">
+<button
+  type="button"
+  class="service-link project-service-link"
+  data-project="Project Management">
+
 Discuss Management →
-</a>
+
+</button>
 
 </div>
 
@@ -1656,9 +2045,7 @@ Discuss Management →
 
 <span class="num">08 / CONSULT</span>
 
-<h3>
-Construction Consultancy
-</h3>
+<h3>Construction Consultancy</h3>
 
 <p>
 Professional construction guidance covering planning,
@@ -1666,9 +2053,14 @@ quantities, documentation, tender preparation,
 coordination and project support.
 </p>
 
-<a href="#contact" class="service-link">
+<button
+  type="button"
+  class="service-link project-service-link"
+  data-project="Construction Consultancy">
+
 Book Consultation →
-</a>
+
+</button>
 
 </div>
 
@@ -1881,9 +2273,7 @@ project photographs.
 
 <div class="project-info">
 
-<span>
-Construction
-</span>
+<span>Construction</span>
 
 <h3>
 Urban Building Development
@@ -1904,9 +2294,7 @@ Urban Building Development
 
 <div class="project-info">
 
-<span>
-Site Works
-</span>
+<span>Site Works</span>
 
 <h3>
 Construction & Equipment
@@ -1927,9 +2315,7 @@ Construction & Equipment
 
 <div class="project-info">
 
-<span>
-Engineering
-</span>
+<span>Engineering</span>
 
 <h3>
 Building & Civil Works
@@ -1984,87 +2370,39 @@ coordination and execution aligned.
 <div class="steps">
 
 <div class="step reveal show">
-
 <strong>01</strong>
-
-<h3>
-Consultation
-</h3>
-
-<p>
-Understand requirements, expectations and scope.
-</p>
-
+<h3>Consultation</h3>
+<p>Understand requirements, expectations and scope.</p>
 </div>
 
 <div class="step reveal show">
-
 <strong>02</strong>
-
-<h3>
-Site Assessment
-</h3>
-
-<p>
-Assess site conditions and project requirements.
-</p>
-
+<h3>Site Assessment</h3>
+<p>Assess site conditions and project requirements.</p>
 </div>
 
 <div class="step reveal show">
-
 <strong>03</strong>
-
-<h3>
-Estimation
-</h3>
-
-<p>
-Prepare quantities, BOQs, estimates and documents.
-</p>
-
+<h3>Estimation</h3>
+<p>Prepare quantities, BOQs, estimates and documents.</p>
 </div>
 
 <div class="step reveal show">
-
 <strong>04</strong>
-
-<h3>
-Execution
-</h3>
-
-<p>
-Carry out work according to agreed requirements.
-</p>
-
+<h3>Execution</h3>
+<p>Carry out work according to agreed requirements.</p>
 </div>
 
 <div class="step reveal show">
-
 <strong>05</strong>
-
-<h3>
-Monitoring
-</h3>
-
-<p>
-Coordinate activities and monitor progress.
-</p>
-
+<h3>Monitoring</h3>
+<p>Coordinate activities and monitor progress.</p>
 </div>
 
 <div class="step reveal show">
-
 <strong>06</strong>
-
-<h3>
-Completion
-</h3>
-
-<p>
-Complete the project according to scope.
-</p>
-
+<h3>Completion</h3>
+<p>Complete the project according to scope.</p>
 </div>
 
 </div>
@@ -2106,13 +2444,14 @@ BOQ, estimation, renovation or construction consultancy
 requirements.
 </p>
 
-<a
+<button
   class="btn gold"
-  href="#contact">
+  type="button"
+  id="openProjectModal">
 
 Discuss Your Project
 
-</a>
+</button>
 
 </div>
 
@@ -2275,6 +2614,295 @@ Email Us
 
 </section>
 
+<!-- =========================================================
+     PROJECT DISCUSSION MODAL
+     ========================================================= -->
+
+<div
+  class="project-modal"
+  id="projectModal"
+  aria-hidden="true"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="projectModalTitle">
+
+<div
+  class="project-modal-overlay"
+  id="projectModalOverlay">
+</div>
+
+<div class="project-modal-box">
+
+<div class="project-modal-top">
+
+<div class="project-modal-eyebrow">
+JMS PROJECT DISCUSSION
+</div>
+
+<h2 id="projectModalTitle">
+Let's discuss your project.
+</h2>
+
+<p>
+Choose the service you need, then tell us where the project
+is located and what you are planning.
+</p>
+
+<button
+  type="button"
+  class="project-modal-close"
+  id="closeProjectModal"
+  aria-label="Close project discussion">
+
+×
+</button>
+
+</div>
+
+<div class="project-progress">
+
+<button
+  type="button"
+  class="project-tab active"
+  id="projectTabOne">
+
+<span>STEP 01</span>
+Your Project
+
+</button>
+
+<button
+  type="button"
+  class="project-tab"
+  id="projectTabTwo">
+
+<span>STEP 02</span>
+Project Details
+
+</button>
+
+</div>
+
+<!-- STEP ONE -->
+
+<div
+  class="project-step active"
+  id="projectStepOne">
+
+<h3 class="project-step-title">
+What can JMS help you with?
+</h3>
+
+<p class="project-step-description">
+Select the service that best matches your project.
+</p>
+
+<div class="project-service-grid">
+
+<button
+  type="button"
+  class="project-service-option"
+  data-project="Building Construction">
+
+<strong>Building Construction</strong>
+<span>Residential, commercial and general construction.</span>
+<i class="project-service-check">✓</i>
+
+</button>
+
+<button
+  type="button"
+  class="project-service-option"
+  data-project="Civil & Structural Works">
+
+<strong>Civil & Structural Works</strong>
+<span>PCC, RCC, foundations, masonry, drainage and civil works.</span>
+<i class="project-service-check">✓</i>
+
+</button>
+
+<button
+  type="button"
+  class="project-service-option"
+  data-project="BOQ & Quantity Estimation">
+
+<strong>BOQ & Quantity Estimation</strong>
+<span>Quantities, BOQs, material and cost estimation.</span>
+<i class="project-service-check">✓</i>
+
+</button>
+
+<button
+  type="button"
+  class="project-service-option"
+  data-project="Tendering & Documentation">
+
+<strong>Tendering & Documentation</strong>
+<span>Tender support, BOQ review and documentation.</span>
+<i class="project-service-check">✓</i>
+
+</button>
+
+<button
+  type="button"
+  class="project-service-option"
+  data-project="Roads & Infrastructure">
+
+<strong>Roads & Infrastructure</strong>
+<span>Roads, drainage, storm-water and site development.</span>
+<i class="project-service-check">✓</i>
+
+</button>
+
+<button
+  type="button"
+  class="project-service-option"
+  data-project="Renovation & Maintenance">
+
+<strong>Renovation & Maintenance</strong>
+<span>Renovation, repairs, finishing and maintenance.</span>
+<i class="project-service-check">✓</i>
+
+</button>
+
+<button
+  type="button"
+  class="project-service-option"
+  data-project="Project Management">
+
+<strong>Project Management</strong>
+<span>Planning, coordination, monitoring and execution support.</span>
+<i class="project-service-check">✓</i>
+
+</button>
+
+<button
+  type="button"
+  class="project-service-option"
+  data-project="Construction Consultancy">
+
+<strong>Construction Consultancy</strong>
+<span>Construction planning, quantities and project support.</span>
+<i class="project-service-check">✓</i>
+
+</button>
+
+</div>
+
+<div class="project-form-actions">
+
+<div></div>
+
+<button
+  type="button"
+  class="btn"
+  id="projectNext">
+
+Continue →
+
+</button>
+
+</div>
+
+</div>
+
+<!-- STEP TWO -->
+
+<div
+  class="project-step"
+  id="projectStepTwo">
+
+<h3 class="project-step-title">
+Tell us about your project
+</h3>
+
+<p class="project-step-description">
+A few details will help us understand your requirement.
+</p>
+
+<div class="selected-project-box">
+
+<div>
+
+<small>Selected service</small>
+
+<strong id="selectedProjectName">
+Not selected
+</strong>
+
+</div>
+
+</div>
+
+<div class="project-form-group">
+
+<label for="projectLocation">
+Project Location <span class="project-required">*</span>
+</label>
+
+<input
+  type="text"
+  id="projectLocation"
+  placeholder="e.g. DHA Phase 6, Karachi"
+  autocomplete="address-level2">
+
+</div>
+
+<div class="project-form-group">
+
+<label for="projectDetails">
+Project Details
+</label>
+
+<textarea
+  id="projectDetails"
+  placeholder="Tell us briefly about your project, approximate size, current stage, required work, BOQ requirement or any other important details."></textarea>
+
+</div>
+
+<div class="project-form-actions">
+
+<button
+  type="button"
+  class="btn project-back"
+  id="projectBack">
+
+← Back
+
+</button>
+
+<div class="right-actions">
+
+<a
+  href="#"
+  target="_blank"
+  rel="noopener"
+  class="btn project-whatsapp"
+  id="projectWhatsApp">
+
+WhatsApp JMS
+
+</a>
+
+<a
+  href="#contact"
+  class="btn project-contact"
+  id="projectContact">
+
+Continue to Contact
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </main>
 
 <!-- =========================================================
@@ -2414,6 +3042,489 @@ document.querySelectorAll("#mainNav a").forEach(link => {
   });
 
 });
+
+
+/* =========================================================
+   PROJECT DISCUSSION MODAL
+   ========================================================= */
+
+const projectModal =
+  document.getElementById("projectModal");
+
+const projectModalOverlay =
+  document.getElementById("projectModalOverlay");
+
+const closeProjectModal =
+  document.getElementById("closeProjectModal");
+
+const openProjectModal =
+  document.getElementById("openProjectModal");
+
+const heroProjectButton =
+  document.getElementById("heroProjectButton");
+
+const projectStepOne =
+  document.getElementById("projectStepOne");
+
+const projectStepTwo =
+  document.getElementById("projectStepTwo");
+
+const projectTabOne =
+  document.getElementById("projectTabOne");
+
+const projectTabTwo =
+  document.getElementById("projectTabTwo");
+
+const projectNext =
+  document.getElementById("projectNext");
+
+const projectBack =
+  document.getElementById("projectBack");
+
+const selectedProjectName =
+  document.getElementById("selectedProjectName");
+
+const projectLocation =
+  document.getElementById("projectLocation");
+
+const projectDetails =
+  document.getElementById("projectDetails");
+
+const projectWhatsApp =
+  document.getElementById("projectWhatsApp");
+
+const projectContact =
+  document.getElementById("projectContact");
+
+const serviceOptions =
+  document.querySelectorAll(".project-service-option");
+
+const serviceLinks =
+  document.querySelectorAll(".project-service-link");
+
+let selectedProject = "";
+
+
+/* =========================================================
+   OPEN MODAL
+   ========================================================= */
+
+function openProjectDiscussion(service = "") {
+
+  projectModal.classList.add("active");
+
+  projectModal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body.classList.add("modal-open");
+
+  if (service) {
+
+    selectedProject = service;
+
+    updateSelectedService();
+
+    showProjectStepTwo();
+
+  } else {
+
+    selectedProject = "";
+
+    clearSelectedService();
+
+    showProjectStepOne();
+
+  }
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+   ========================================================= */
+
+function closeProjectDiscussion() {
+
+  projectModal.classList.remove("active");
+
+  projectModal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove("modal-open");
+
+}
+
+
+/* =========================================================
+   STEP ONE
+   ========================================================= */
+
+function showProjectStepOne() {
+
+  projectStepOne.classList.add("active");
+  projectStepTwo.classList.remove("active");
+
+  projectTabOne.classList.add("active");
+  projectTabTwo.classList.remove("active");
+
+}
+
+
+/* =========================================================
+   STEP TWO
+   ========================================================= */
+
+function showProjectStepTwo() {
+
+  if (!selectedProject) {
+
+    showProjectStepOne();
+
+    return;
+
+  }
+
+  projectStepOne.classList.remove("active");
+  projectStepTwo.classList.add("active");
+
+  projectTabOne.classList.remove("active");
+  projectTabTwo.classList.add("active");
+
+  updateSelectedService();
+  updateProjectWhatsApp();
+
+}
+
+
+/* =========================================================
+   SELECT SERVICE
+   ========================================================= */
+
+function selectProjectService(service) {
+
+  selectedProject = service;
+
+  serviceOptions.forEach(option => {
+
+    option.classList.toggle(
+      "selected",
+      option.dataset.project === service
+    );
+
+  });
+
+  updateSelectedService();
+
+}
+
+
+/* =========================================================
+   CLEAR SERVICE
+   ========================================================= */
+
+function clearSelectedService() {
+
+  serviceOptions.forEach(option => {
+
+    option.classList.remove("selected");
+
+  });
+
+  selectedProjectName.textContent =
+    "Not selected";
+
+}
+
+
+/* =========================================================
+   UPDATE SELECTED SERVICE
+   ========================================================= */
+
+function updateSelectedService() {
+
+  selectedProjectName.textContent =
+    selectedProject || "Not selected";
+
+  serviceOptions.forEach(option => {
+
+    option.classList.toggle(
+      "selected",
+      option.dataset.project === selectedProject
+    );
+
+  });
+
+}
+
+
+/* =========================================================
+   WHATSAPP MESSAGE
+   ========================================================= */
+
+function updateProjectWhatsApp() {
+
+  const location =
+    projectLocation.value.trim();
+
+  const details =
+    projectDetails.value.trim();
+
+  let message =
+    "Hello JMS Construction & Company.%0A%0A" +
+    "I would like to discuss a project.%0A%0A" +
+    "Service: " +
+    encodeURIComponent(selectedProject || "General Inquiry");
+
+  if (location) {
+
+    message +=
+      "%0AProject Location: " +
+      encodeURIComponent(location);
+
+  }
+
+  if (details) {
+
+    message +=
+      "%0AProject Details: " +
+      encodeURIComponent(details);
+
+  }
+
+  message +=
+    "%0A%0APlease contact me regarding this project.";
+
+  projectWhatsApp.href =
+    "https://wa.me/923000132238?text=" +
+    message;
+
+}
+
+
+/* =========================================================
+   MAIN CTA
+   ========================================================= */
+
+openProjectModal.addEventListener(
+  "click",
+  function() {
+
+    openProjectDiscussion();
+
+  }
+);
+
+
+/* =========================================================
+   HERO CTA
+   ========================================================= */
+
+heroProjectButton.addEventListener(
+  "click",
+  function() {
+
+    openProjectDiscussion();
+
+  }
+);
+
+
+/* =========================================================
+   SERVICE CARD BUTTONS
+   ========================================================= */
+
+serviceLinks.forEach(link => {
+
+  link.addEventListener(
+    "click",
+    function() {
+
+      const service =
+        this.dataset.project;
+
+      openProjectDiscussion(service);
+
+    }
+  );
+
+});
+
+
+/* =========================================================
+   SERVICE OPTIONS
+   ========================================================= */
+
+serviceOptions.forEach(option => {
+
+  option.addEventListener(
+    "click",
+    function() {
+
+      selectProjectService(
+        this.dataset.project
+      );
+
+    }
+  );
+
+});
+
+
+/* =========================================================
+   CONTINUE
+   ========================================================= */
+
+projectNext.addEventListener(
+  "click",
+  function() {
+
+    if (!selectedProject) {
+
+      alert(
+        "Please select a service before continuing."
+      );
+
+      return;
+
+    }
+
+    showProjectStepTwo();
+
+  }
+);
+
+
+/* =========================================================
+   BACK
+   ========================================================= */
+
+projectBack.addEventListener(
+  "click",
+  function() {
+
+    showProjectStepOne();
+
+  }
+);
+
+
+/* =========================================================
+   TABS
+   ========================================================= */
+
+projectTabOne.addEventListener(
+  "click",
+  function() {
+
+    showProjectStepOne();
+
+  }
+);
+
+projectTabTwo.addEventListener(
+  "click",
+  function() {
+
+    if (selectedProject) {
+
+      showProjectStepTwo();
+
+    } else {
+
+      showProjectStepOne();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   FORM LIVE UPDATE
+   ========================================================= */
+
+projectLocation.addEventListener(
+  "input",
+  updateProjectWhatsApp
+);
+
+projectDetails.addEventListener(
+  "input",
+  updateProjectWhatsApp
+);
+
+
+/* =========================================================
+   WHATSAPP UPDATE BEFORE CLICK
+   ========================================================= */
+
+projectWhatsApp.addEventListener(
+  "click",
+  function() {
+
+    updateProjectWhatsApp();
+
+  }
+);
+
+
+/* =========================================================
+   CONTACT BUTTON
+   ========================================================= */
+
+projectContact.addEventListener(
+  "click",
+  function() {
+
+    closeProjectDiscussion();
+
+  }
+);
+
+
+/* =========================================================
+   CLOSE BUTTON
+   ========================================================= */
+
+closeProjectModal.addEventListener(
+  "click",
+  closeProjectDiscussion
+);
+
+
+/* =========================================================
+   CLOSE ON OVERLAY
+   ========================================================= */
+
+projectModalOverlay.addEventListener(
+  "click",
+  closeProjectDiscussion
+);
+
+
+/* =========================================================
+   CLOSE WITH ESC KEY
+   ========================================================= */
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (
+      event.key === "Escape" &&
+      projectModal.classList.contains("active")
+    ) {
+
+      closeProjectDiscussion();
+
+    }
+
+  }
+);
 
 </script>
 
